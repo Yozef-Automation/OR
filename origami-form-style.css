@@ -1,306 +1,243 @@
-/* =============================================
-   Origami Form - Custom Styles
-   ============================================= */
-
-/* --- General Form Container --- */
-.activity-form,
-.form-container,
-[class*="form-wrap"],
-[class*="activity-wrap"] {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  direction: rtl;
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+:root {
+    --green: #3DD598;
+    --black: #252525;
+    --grey: #464646;
 }
 
-/* --- Section Titles --- */
-.form-section-title,
-[class*="section-header"],
-[class*="group-title"],
-fieldset legend {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1a1a2e;
-  border-bottom: 2px solid #e0e7ff;
-  padding-bottom: 8px;
-  margin-bottom: 16px;
-  margin-top: 24px;
+/* Hide last element in form */
+form#form-entity > div:last-child {
+    display: none;
 }
 
-/* --- Labels --- */
-label,
-[class*="field-label"],
-[class*="label"] {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-  margin-bottom: 5px;
+h1, h2, h3, span, p, div {
+    color: white;
 }
 
-/* --- Text Inputs & Textareas --- */
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="tel"],
-input[type="url"],
-input[type="date"],
-input[type="datetime-local"],
-textarea,
-select,
-[class*="input-field"],
-[class*="text-field"] {
-  width: 100%;
-  padding: 10px 14px;
-  font-size: 14px;
-  color: #111827;
-  background: #f9fafb;
-  border: 1.5px solid #d1d5db;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  outline: none;
+div#entity-container div {
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="tel"]:focus,
-input[type="date"]:focus,
-textarea:focus,
-select:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
-  background: #fff;
+div#entity-container .field_group.ng-scope.field_group_odd {
+    border: none;
 }
 
-textarea {
-  min-height: 100px;
-  resize: vertical;
+div#entity-container {
+    border-radius: 20px !important;
+    overflow: hidden;
+    background: var(--black);
+    padding: 20px 15px;
 }
 
-/* --- Field 1485 --- */
-[id*="1485"],
-[name*="1485"],
-[data-field-id="1485"],
-[data-id="1485"] {
-  border: 2px solid #6366f1 !important;
-  background: #eef2ff !important;
-  border-radius: 8px !important;
-  padding: 10px 14px !important;
-  font-size: 14px !important;
-  color: #1e1b4b !important;
+/* Select2 dropdowns */
+.select2-container-multi .select2-choices .select2-search-choice {
+    background: var(--green);
 }
 
-[id*="1485"]:focus,
-[name*="1485"]:focus {
-  border-color: #4338ca !important;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+.select2-drop {
+    border-radius: 8px;
 }
 
-/* --- Field 1351 --- */
-[id*="1351"],
-[name*="1351"],
-[data-field-id="1351"],
-[data-id="1351"] {
-  border: 2px solid #10b981 !important;
-  background: #ecfdf5 !important;
-  border-radius: 8px !important;
-  padding: 10px 14px !important;
-  font-size: 14px !important;
-  color: #064e3b !important;
+.select2-drop ul li.select2-highlighted {
+    background: var(--green);
 }
 
-[id*="1351"]:focus,
-[name*="1351"]:focus {
-  border-color: #059669 !important;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
+.select2-drop ul li:not(.select2-highlighted) {
+    background: var(--black);
 }
 
-/* --- Dropdowns / Select --- */
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7280' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: left 14px center;
-  padding-left: 36px;
+ul.select2-choices,
+input,
+a.select2-choice,
+.textarea_field textarea {
+    border-radius: 8px !important;
+    background: var(--grey) !important;
+    color: #fff !important;
+    text-align: right !important;
+    padding: 10px;
 }
 
-/* --- Checkboxes & Radio Buttons --- */
-input[type="checkbox"],
-input[type="radio"] {
-  width: 17px;
-  height: 17px;
-  accent-color: #4f46e5;
-  cursor: pointer;
-  margin-left: 6px;
+ul.select2-choices:focus,
+input:not(.select2-input):focus,
+a.select2-choice:focus,
+.textarea_field textarea:focus {
+    outline: 1px solid var(--green) !important;
 }
 
-/* --- Field Row Layout --- */
-.field-row,
-[class*="field-row"],
-[class*="form-row"] {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
+div.field_name_wrapper div.field_name {
+    color: #fff;
+    width: calc(100% - 20px);
 }
 
-.field-row > *,
-[class*="field-row"] > * {
-  flex: 1 1 200px;
+div.select2-result-label {
+    color: #fff;
 }
 
-/* --- Individual Field Wrapper --- */
-.field-wrapper,
-[class*="field-wrap"],
-[class*="form-field"] {
-  margin-bottom: 16px;
+.select2-search,
+.select2-search input.select2-input {
+    padding: 0;
+    margin: 0;
 }
 
-/* --- Helper / Description Text --- */
-[class*="field-desc"],
-[class*="helper-text"],
-small {
-  font-size: 12px;
-  color: #6b7280;
-  margin-top: 4px;
-  display: block;
+/* Readonly text fields */
+div.field.readonly-text span.field.readonly_text {
+    border-radius: 8px !important;
+    background: var(--grey) !important;
+    color: #fff !important;
+    text-align: right !important;
+    padding: 10px;
+    display: block;
+    border: 1px solid #ffffff44;
 }
 
-/* --- Error Messages --- */
-[class*="error"],
-[class*="validation-msg"] {
-  color: #ef4444;
-  font-size: 12px;
-  margin-top: 4px;
+div.field_name_wrapper div.field_name.ng-binding {
+    color: #fff;
 }
 
-/* --- Buttons --- */
-button,
-input[type="submit"],
-[class*="btn"],
-[class*="button"] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 24px;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+/* Save / Submit buttons */
+.create_entity_buttons {
+    display: flex;
+    justify-content: center;
 }
 
-/* Primary / Save Button */
-button[type="submit"],
-[class*="btn-primary"],
-[class*="save-btn"],
-[class*="submit-btn"] {
-  background: #4f46e5;
-  color: #ffffff;
+.create_entity_buttons button.btn {
+    border-radius: 8px;
+    background-color: var(--green);
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 30px;
 }
 
-button[type="submit"]:hover,
-[class*="btn-primary"]:hover {
-  background: #4338ca;
-  transform: translateY(-1px);
+/* Tooltips */
+.entity .field_group div.modal_tooltip.ng-scope {
+    top: 0;
+    left: 0;
+    padding: 5px;
 }
 
-/* Cancel Button */
-[class*="btn-cancel"],
-[class*="cancel-btn"] {
-  background: #f3f4f6;
-  color: #374151;
-  border: 1.5px solid #d1d5db;
+.entity .field_group div.modal_tooltip.ng-scope span {
+    margin: 0 !important;
 }
 
-/* --- YouTube Buttons Container --- */
+.entity .field_group div.modal_tooltip.ng-scope .popover {
+    background: var(--black) !important;
+    border-color: var(--green);
+}
+
+.entity input,
+.select2-container-multi ul.select2-choices {
+    border-color: #ffffff44;
+}
+
+/* Fields 1485 and 1351 - highlighted */
+[data-field-id="1485"] input,
+[data-field-id="1485"] textarea,
+[data-field-id="1485"] ul.select2-choices,
+[id*="1485"] {
+    border: 1.5px solid var(--green) !important;
+    background: #2e4a3e !important;
+}
+
+[data-field-id="1351"] input,
+[data-field-id="1351"] textarea,
+[data-field-id="1351"] ul.select2-choices,
+[id*="1351"] {
+    border: 1.5px solid #60a5fa !important;
+    background: #1e3a5f !important;
+}
+
+/* Datepicker */
+.xdsoft_datepicker {
+    background-color: #333;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    transform: scale(1.25);
+    transform-origin: top left;
+}
+
+.xdsoft_mounthpicker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    border-bottom: 1px solid #ccc;
+}
+
+.xdsoft_prev,
+.xdsoft_next,
+.xdsoft_today_button {
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.xdsoft_label span,
+.xdsoft_label i,
+.xdsoft_option,
+.xdsoft_calendar th,
+.xdsoft_calendar td,
+.xdsoft_today_button {
+    color: #fff !important;
+    font-weight: bold !important;
+}
+
+.xdsoft_label { background-color: #333 !important; color: #fff !important; }
+.xdsoft_select { background-color: #333 !important; color: #fff !important; }
+.xdsoft_option { background-color: #333 !important; color: #fff !important; }
+
+.xdsoft_option:hover,
+.xdsoft_option.xdsoft_current {
+    background-color: #fff !important;
+    color: #333 !important;
+}
+
+.xdsoft_calendar td div { color: #fff !important; font-weight: bold !important; }
+.xdsoft_calendar td { background-color: #333 !important; border: none; padding: 0 !important; }
+.xdsoft_calendar th { background-color: #aaa !important; color: #fff !important; font-weight: bold !important; }
+.xdsoft_datetimepicker { border-radius: 8px; }
+.xdsoft_scrollbar { background-color: #333; }
+.xdsoft_scroller { background-color: #fff; }
+
+/* YouTube buttons */
 #yt-buttons-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0;
-  direction: rtl;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 20px 0;
+    direction: rtl;
 }
 
-/* --- YouTube Button Base Style --- */
 .yt-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background: #ff0000;
-  color: #ffffff !important;
-  font-size: 14px;
-  font-weight: 700;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-decoration: none !important;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.25);
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 18px !important;
+    background: #ff0000 !important;
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(255,0,0,0.3) !important;
+    transition: background 0.2s !important;
 }
 
 .yt-btn:hover {
-  background: #cc0000;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.35);
+    background: #cc0000 !important;
 }
 
-.yt-btn svg {
-  flex-shrink: 0;
-}
-
-/* --- Table inside form (if any) --- */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-th {
-  background: #f3f4f6;
-  color: #374151;
-  font-weight: 600;
-  padding: 10px 12px;
-  text-align: right;
-  border-bottom: 2px solid #e5e7eb;
-}
-
-td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #f3f4f6;
-  color: #111827;
-}
-
-tr:hover td {
-  background: #f9fafb;
-}
-
-/* --- Responsive --- */
-@media (max-width: 600px) {
-  .field-row,
-  [class*="field-row"] {
-    flex-direction: column;
-  }
-
-  button,
-  input[type="submit"] {
-    width: 100%;
-  }
-
-  #yt-buttons-bar {
-    flex-direction: column;
-  }
-
-  .yt-btn {
-    width: 100%;
-    justify-content: center;
-  }
+@media (min-width: 980px) {
+    .entity .field_group_body .form_data_element_wrap {
+        width: 50% !important;
+    }
 }
