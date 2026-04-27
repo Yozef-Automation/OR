@@ -1,117 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-    --green: #3DD598;
-    --black: #252525;
-    --grey: #464646;
+    --primary: #6c63ff;
+    --primary-dark: #4e46d9;
+    --accent: #00d4aa;
+    --black: #0f0f1a;
+    --dark: #1a1a2e;
+    --card: #16213e;
+    --grey: #1e2a45;
+    --border: rgba(108, 99, 255, 0.3);
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --glow: 0 0 20px rgba(108, 99, 255, 0.3);
 }
 
-form#form-entity > div:last-child {
-    display: none;
+/* Base */
+* {
+    font-family: 'Heebo', 'Segoe UI', Arial, sans-serif !important;
+    box-sizing: border-box;
 }
 
-h1, h2, h3, span, p, div {
-    color: white;
+body {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%) !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    min-height: 100vh;
+    direction: rtl;
+}
+
+h1, h2, h3, h4, span, p, div, label {
+    color: var(--text) !important;
+}
+
+/* Main container */
+div#entity-container {
+    background: linear-gradient(145deg, #1a1a2e, #16213e) !important;
+    border-radius: 24px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow:
+        0 25px 50px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(108,99,255,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.05) !important;
+    padding: 32px 24px !important;
+    overflow: hidden !important;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto !important;
+}
+
+div#entity-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 24px 24px 0 0;
 }
 
 div#entity-container div {
-    background: transparent;
-    color: #fff;
-    font-size: 16px;
-    max-width: 1400px;
-    margin: 0 auto;
+    background: transparent !important;
+    color: var(--text) !important;
+    font-size: 15px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+
+/* Field groups */
+div#entity-container .field_group.ng-scope {
+    border: none !important;
+    margin-bottom: 8px !important;
 }
 
 div#entity-container .field_group.ng-scope.field_group_odd {
-    border: none;
+    border: none !important;
 }
 
-div#entity-container {
-    border-radius: 20px !important;
-    overflow: hidden;
-    background: var(--black);
-    padding: 20px 15px;
+/* Field group title */
+.field_group_header,
+.field_group_title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    color: var(--primary) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 16px !important;
+    border-bottom: 1px solid var(--border) !important;
 }
 
-.select2-container-multi .select2-choices .select2-search-choice {
-    background: var(--green);
+/* Field name labels */
+div.field_name_wrapper div.field_name,
+div.field_name_wrapper div.field_name.ng-binding {
+    color: var(--text-muted) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+    margin-bottom: 6px !important;
+    width: calc(100% - 20px) !important;
 }
 
-.select2-drop {
-    border-radius: 8px;
-}
-
-.select2-drop ul li.select2-highlighted {
-    background: var(--green);
-}
-
-.select2-drop ul li:not(.select2-highlighted) {
-    background: var(--black);
-}
-
+/* All inputs */
 ul.select2-choices,
 input,
 a.select2-choice,
 .textarea_field textarea {
-    border-radius: 8px !important;
     background: var(--grey) !important;
-    color: #fff !important;
+    border: 1.5px solid rgba(108,99,255,0.2) !important;
+    border-radius: 12px !important;
+    color: var(--text) !important;
+    padding: 11px 14px !important;
+    font-size: 14px !important;
+    transition: all 0.25s ease !important;
     text-align: right !important;
-    padding: 10px;
+    width: 100% !important;
+}
+
+input:not(.select2-input):hover,
+.textarea_field textarea:hover,
+a.select2-choice:hover {
+    border-color: rgba(108,99,255,0.5) !important;
+    background: #22305a !important;
 }
 
 ul.select2-choices:focus,
 input:not(.select2-input):focus,
 a.select2-choice:focus,
 .textarea_field textarea:focus {
-    outline: 1px solid var(--green) !important;
+    outline: none !important;
+    border-color: var(--primary) !important;
+    background: #22305a !important;
+    box-shadow: var(--glow) !important;
 }
 
-div.field_name_wrapper div.field_name {
-    color: #fff;
-    width: calc(100% - 20px);
+/* Readonly fields */
+div.field.readonly-text span.field.readonly_text {
+    background: rgba(108,99,255,0.08) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    color: var(--text) !important;
+    padding: 11px 14px !important;
+    display: block !important;
+    text-align: right !important;
+}
+
+/* Select2 */
+.select2-container-multi .select2-choices .select2-search-choice {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #fff !important;
+    padding: 4px 10px !important;
+    font-size: 13px !important;
+}
+
+.select2-drop {
+    background: var(--card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+    overflow: hidden !important;
+}
+
+.select2-drop ul li {
+    padding: 10px 14px !important;
+    color: var(--text) !important;
+    transition: background 0.15s !important;
+}
+
+.select2-drop ul li.select2-highlighted {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+    color: #fff !important;
+}
+
+.select2-drop ul li:not(.select2-highlighted) {
+    background: var(--card) !important;
 }
 
 div.select2-result-label {
-    color: #fff;
+    color: var(--text) !important;
 }
 
 .select2-search,
 .select2-search input.select2-input {
-    padding: 0;
-    margin: 0;
-}
-
-div.field.readonly-text span.field.readonly_text {
-    border-radius: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
     background: var(--grey) !important;
-    color: #fff !important;
-    text-align: right !important;
-    padding: 10px;
-    display: block;
-    border: 1px solid #ffffff44;
+    border-bottom: 1px solid var(--border) !important;
 }
 
-div.field_name_wrapper div.field_name.ng-binding {
-    color: #fff;
+.entity input,
+.select2-container-multi ul.select2-choices {
+    border-color: rgba(108,99,255,0.2) !important;
 }
 
+/* Save button */
 .create_entity_buttons {
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 28px !important;
+    gap: 12px !important;
 }
 
 .create_entity_buttons button.btn {
-    border-radius: 8px;
-    background-color: var(--green);
-    color: var(--black);
-    font-size: 16px;
-    font-weight: 600;
-    padding: 15px 30px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 12px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    padding: 14px 40px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 20px rgba(108,99,255,0.4) !important;
+    letter-spacing: 0.5px !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
+.create_entity_buttons button.btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 30px rgba(108,99,255,0.6) !important;
+}
+
+.create_entity_buttons button.btn:active {
+    transform: translateY(0) !important;
+}
+
+/* Tooltips */
 .entity .field_group div.modal_tooltip.ng-scope {
-    top: 0;
-    left: 0;
-    padding: 5px;
+    top: 0 !important;
+    left: 0 !important;
+    padding: 5px !important;
 }
 
 .entity .field_group div.modal_tooltip.ng-scope span {
@@ -119,117 +240,84 @@ div.field_name_wrapper div.field_name.ng-binding {
 }
 
 .entity .field_group div.modal_tooltip.ng-scope .popover {
-    background: var(--black) !important;
-    border-color: var(--green);
+    background: var(--card) !important;
+    border-color: var(--primary) !important;
+    border-radius: 10px !important;
+    box-shadow: var(--glow) !important;
 }
 
-.entity input,
-.select2-container-multi ul.select2-choices {
-    border-color: #ffffff44;
+/* Hide last element */
+form#form-entity > div:last-child {
+    display: none !important;
 }
 
-[data-field-id="1485"] input,
-[data-field-id="1485"] textarea,
-[data-field-id="1485"] ul.select2-choices,
-[id*="1485"] {
-    border: 1.5px solid var(--green) !important;
-    background: #2e4a3e !important;
-}
-
-[data-field-id="1351"] input,
-[data-field-id="1351"] textarea,
-[data-field-id="1351"] ul.select2-choices,
-[id*="1351"] {
-    border: 1.5px solid #60a5fa !important;
-    background: #1e3a5f !important;
-}
-
+/* Datepicker */
 .xdsoft_datepicker {
-    background-color: #333;
-    border-radius: 8px;
-    color: #fff;
-    font-weight: bold;
-    transform: scale(1.25);
-    transform-origin: top left;
+    background-color: var(--card) !important;
+    border-radius: 14px !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+    color: var(--text) !important;
+    font-weight: 500 !important;
 }
 
 .xdsoft_mounthpicker {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #333;
-    border-bottom: 1px solid #ccc;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px !important;
+    background-color: var(--dark) !important;
+    border-bottom: 1px solid var(--border) !important;
 }
 
-.xdsoft_prev,
-.xdsoft_next,
-.xdsoft_today_button {
-    background-color: #333;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    color: #fff;
-    font-weight: bold;
-}
-
-.xdsoft_label span,
-.xdsoft_label i,
-.xdsoft_option,
-.xdsoft_calendar th,
-.xdsoft_calendar td,
-.xdsoft_today_button {
-    color: #fff !important;
+.xdsoft_prev, .xdsoft_next, .xdsoft_today_button {
+    background: var(--grey) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: var(--text) !important;
     font-weight: bold !important;
 }
 
-.xdsoft_label { background-color: #333 !important; color: #fff !important; }
-.xdsoft_select { background-color: #333 !important; color: #fff !important; }
-.xdsoft_option { background-color: #333 !important; color: #fff !important; }
-
-.xdsoft_option:hover,
-.xdsoft_option.xdsoft_current {
-    background-color: #fff !important;
-    color: #333 !important;
+.xdsoft_label span, .xdsoft_label i, .xdsoft_option,
+.xdsoft_calendar th, .xdsoft_calendar td, .xdsoft_today_button {
+    color: var(--text) !important;
+    font-weight: 500 !important;
 }
 
-.xdsoft_calendar td div { color: #fff !important; font-weight: bold !important; }
-.xdsoft_calendar td { background-color: #333 !important; border: none; padding: 0 !important; }
-.xdsoft_calendar th { background-color: #aaa !important; color: #fff !important; font-weight: bold !important; }
-.xdsoft_datetimepicker { border-radius: 8px; }
-.xdsoft_scrollbar { background-color: #333; }
-.xdsoft_scroller { background-color: #fff; }
+.xdsoft_label { background-color: var(--dark) !important; color: var(--text) !important; }
+.xdsoft_select { background-color: var(--grey) !important; color: var(--text) !important; }
+.xdsoft_option { background-color: var(--grey) !important; color: var(--text) !important; }
 
-#yt-buttons-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 0 0 20px 0;
-    direction: rtl;
-}
-
-.yt-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    padding: 10px 18px !important;
-    background: #ff0000 !important;
+.xdsoft_option:hover, .xdsoft_option.xdsoft_current {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
     color: #fff !important;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    border-radius: 8px !important;
-    text-decoration: none !important;
-    box-shadow: 0 2px 8px rgba(255,0,0,0.3) !important;
-    transition: background 0.2s !important;
 }
 
-.yt-btn:hover {
-    background: #cc0000 !important;
-}
+.xdsoft_calendar td div { color: var(--text) !important; }
+.xdsoft_calendar td { background-color: var(--card) !important; border: none !important; padding: 2px !important; }
+.xdsoft_calendar td:hover div { background: var(--primary) !important; border-radius: 6px !important; }
+.xdsoft_calendar th { background-color: var(--grey) !important; color: var(--text) !important; font-weight: 700 !important; }
+.xdsoft_datetimepicker { border-radius: 14px !important; }
+.xdsoft_scrollbar { background-color: var(--grey) !important; }
+.xdsoft_scroller { background: linear-gradient(var(--primary), var(--primary-dark)) !important; border-radius: 4px !important; }
 
+/* Content box */
+.content-box { line-height: 1.6 !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+/* Responsive */
 @media (min-width: 980px) {
     .entity .field_group_body .form_data_element_wrap {
         width: 50% !important;
     }
+}
+
+@media (max-width: 600px) {
+    div#entity-container { padding: 20px 14px !important; border-radius: 16px !important; }
+    .create_entity_buttons button.btn { width: 100% !important; }
 }
