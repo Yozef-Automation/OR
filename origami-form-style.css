@@ -1,0 +1,245 @@
+/* =============================================
+   Origami Form - Custom Styles
+   ============================================= */
+
+/* --- General Form Container --- */
+.activity-form,
+.form-container,
+[class*="form-wrap"],
+[class*="activity-wrap"] {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  direction: rtl;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Section Titles --- */
+.form-section-title,
+[class*="section-header"],
+[class*="group-title"],
+fieldset legend {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  border-bottom: 2px solid #e0e7ff;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+/* --- Labels --- */
+label,
+[class*="field-label"],
+[class*="label"] {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+/* --- Text Inputs & Textareas --- */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="datetime-local"],
+textarea,
+select,
+[class*="input-field"],
+[class*="text-field"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #111827;
+  background: #f9fafb;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+  background: #fff;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* --- Dropdowns / Select --- */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7280' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 14px center;
+  padding-left: 36px;
+}
+
+/* --- Checkboxes & Radio Buttons --- */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #4f46e5;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+/* --- Required Field Indicator --- */
+[class*="required"] label::after,
+label.required::after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* --- Field Row Layout --- */
+.field-row,
+[class*="field-row"],
+[class*="form-row"] {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.field-row > *,
+[class*="field-row"] > * {
+  flex: 1 1 200px;
+}
+
+/* --- Individual Field Wrapper --- */
+.field-wrapper,
+[class*="field-wrap"],
+[class*="form-field"] {
+  margin-bottom: 16px;
+}
+
+/* --- Helper / Description Text --- */
+[class*="field-desc"],
+[class*="helper-text"],
+small {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+  display: block;
+}
+
+/* --- Error Messages --- */
+[class*="error"],
+[class*="validation-msg"] {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* --- Buttons --- */
+button,
+input[type="submit"],
+[class*="btn"],
+[class*="button"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Primary / Save Button */
+button[type="submit"],
+[class*="btn-primary"],
+[class*="save-btn"],
+[class*="submit-btn"] {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+button[type="submit"]:hover,
+[class*="btn-primary"]:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+/* Cancel Button */
+[class*="btn-cancel"],
+[class*="cancel-btn"],
+button[type="button"] {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1.5px solid #d1d5db;
+}
+
+[class*="btn-cancel"]:hover,
+button[type="button"]:hover {
+  background: #e5e7eb;
+}
+
+/* --- Toggle / Switch --- */
+input[type="checkbox"][role="switch"],
+[class*="toggle"],
+[class*="switch"] {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  accent-color: #4f46e5;
+}
+
+/* --- Table inside form (if any) --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th {
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: right;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #111827;
+}
+
+tr:hover td {
+  background: #f9fafb;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .field-row,
+  [class*="field-row"] {
+    flex-direction: column;
+  }
+
+  button,
+  input[type="submit"] {
+    width: 100%;
+  }
+}
